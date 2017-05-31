@@ -3,13 +3,13 @@ import IsMobile from 'ismobilejs'
 var component = FlowComponents.define("account.profile", function() {
 });
 
-component.action.reconnectMeteorDevAccount = function() {
-  var options = {};
+component.action.reconnectGitHubAccount = function() {
+  var options = {requestPermissions: ['user','repo', 'read:org']};
   if(IsMobile.any) {
     options.loginStyle = "redirect";
   }
 
-  Meteor.loginWithMeteorDeveloperAccount(options, this.showError.bind(this));
+  Meteor.loginWithGithub(options, this.showError.bind(this));
 };
 
 component.prototype.showError = function(error) {

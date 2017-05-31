@@ -7,10 +7,10 @@ Template.signIn.events({
   },
   "click #sign-in-with-meteor": function(e) {
     e.preventDefault();
-    FlowComponents.callAction("signInWithMeteor");
+    FlowComponents.callAction("signInWithGithub");
   },
   "click #sign-up-with-meteor": function(e) {
     e.preventDefault();
-    FlowComponents.callAction("signUpWithMeteor");
+    FlowComponents.callAction("signInWithGithub");
   }
 });
