@@ -19,21 +19,20 @@ component.action.signInWithEmail = function(email, password) {
   Meteor.loginWithPassword(email, password, this.showError.bind(this));
 };
 
-component.prototype.signInWithMeteor = function() {
-  var options = {};
+component.prototype.signInWithGithub = function() {
+  var options = {requestPermissions: ['user','repo', 'read:org']};
   if(IsMobile.any) {
     options.loginStyle = "redirect";
   }
-
-  Meteor.loginWithMeteorDeveloperAccount(options, this.showError.bind(this));
+  Meteor.loginWithGithub(options, this.showError.bind(this));
 };
 
-component.action.signInWithMeteor = function() {
-  this.signInWithMeteor();
+component.action.signInWithGithub = function() {
+  this.signInWithGithub();
 };
 
-component.action.signUpWithMeteor = function() {
-  this.signInWithMeteor();
+component.action.signInWithGithub = function() {
+  this.signInWithGithub();
 };
 
 component.prototype.resetView = function() {

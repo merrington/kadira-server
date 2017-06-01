@@ -26,5 +26,11 @@
   "meteorDevelopers": {
     "clientId": "HcempmSyaawiyb4G4",
     "secret": "snC3snsmTebC8HHCwwhqhHaAzAFxtFsQRL"
+  },
+
+  "github": {
+    "organization_name": "Knote",
+    "client_id": "161979f10a66215d7152",
+    "client_secret": "c1ba787cadd6c758fe03f3beeb04997df03771f8"
   }
 }
