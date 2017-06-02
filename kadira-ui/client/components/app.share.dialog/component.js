@@ -38,6 +38,7 @@ component.state.isOwnerAndFreePlan = function() {
   var isOwner = this.get("isOwner");
   var appId = FlowRouter.getParam("appId");
   var app = Apps.findOne(appId) || {};
+  if (isOwner && app) return false;
   var plan = app.plan || "free";
   return isOwner && plan === "free";
 };
