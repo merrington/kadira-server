@@ -9,10 +9,22 @@ AccountsHelpers.isMeteorLoginConnected = function isMeteorLoginConnected(user){
   return isConnected;
 };
 
+AccountsHelpers.getGitHubEmail = function getGitHubEmail(user){
+   if (!(user && user.services &&
+       user.services["github"] &&
+       user.services["github"].emails &&
+       user.services["github"].emails.length > 0)
+   ){ return undefined; }
+   var primaryEmail = _.find(user.services["github"].emails, function(email){ return email.primary === true; });
+   if (primaryEmail) return primaryEmail.email; else return user.services["github"].emails[0].email
+};
+
 AccountsHelpers.getUserEmail = function _getUserEmail(user){
+  githubEmail = AccountsHelpers.getGitHubEmail(user);
+  if(githubEmail) return githubEmail;
   if(AccountsHelpers.isMeteorLoginConnected(user)){
     var primaryEmail = _.find(user.services && 
-      user.services["meteor-developer"].emails, 
+      user.services["meteor-developer"].emails,
       function(email){ 
         return email.primary === true; 
       });
