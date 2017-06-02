@@ -21,7 +21,4 @@ ADD ./package.json /app/
 RUN npm install
 ADD . /app
 
-ENV MONGO_SHARD one
-ENV MONGO_URL mongodb://dbserver/apm
-
 CMD [ "npm", "run", "start" ]
